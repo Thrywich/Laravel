@@ -16,13 +16,25 @@
         @csrf
 
             <label for="url">URL : </label>
-            <input type="url" name="url" id="url" required />
+            <input type="url" name="url" id="url"/>
+            @error('url')
+                <p>{{$message}}</p>
+            @enderror
+
 
             <label for="email">Enter your email : </label>
-            <input type="email" name="email" id="email" required />
+            <input type="email" name="email" id="email"/>
+            @error('email')
+                <p>{{$message}}</p>
+            @enderror
+
 
             <label for="mdp">Enter your password : </label>
-            <input type="password" name="mdp" id="mdp" minlength="8" required />
+            <input type="password" name="mdp" id="mdp" minlength="8"/>
+            @error('mdp')
+                <p>{{$message}}</p>
+            @enderror
+
 
             <input type="submit" value="Submit"/>
             

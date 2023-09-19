@@ -17,7 +17,7 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('landing');
-});
+})->name('landing');
 
 Route::get('/newPassWord', function () {
     return view('newPassWord');
