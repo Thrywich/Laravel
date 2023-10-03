@@ -8,9 +8,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Password extends Model
 {
+    
     use HasFactory;
 
     public function users(): BelongsTo {
         return $this->belongsTo(User::class);
     }
+
+    protected $casts = ['password'=> 'encrypted'];
+    protected $fillable = ['site','login','password','user_id'];
+
 }

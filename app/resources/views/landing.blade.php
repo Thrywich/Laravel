@@ -11,7 +11,7 @@
         </style>
 
     </head>
-<body>
+<body class="antialiased">
     <header>
         <h1>Welcome to my first Laravel Project</h1>
         @if (Route::has('login'))
@@ -27,14 +27,7 @@
                 @endauth
             </div>
         @endif
+        
     </header>
-    <main>
-        @if (Route::has('newPassWord'))
-            <a href="{{ route('newPassWord') }}">Add new password : click here</a>
-        @endif
-    </main>
-    <footer>
-
-    </footer>
 </body>
 </html>

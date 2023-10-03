@@ -14,4 +14,19 @@
             </div>
         </div>
     </div>
+    <div>
+        @if (Route::has('newPassWord'))
+            <a href="{{ route('newPassWord') }}">Add new password : click here</a>
+        @endif
+    </div>
+    <div>
+        @if (Route::has('passwdList'))
+            <a href="{{ route('passwdList') }}">See all my password : click here</a>
+        @endif
+    </div>
+    <div style="margin-top:50px;">
+        @if (Route::has('addTeam'))
+            <a href="{{ route('addTeam') }}">Create a new team : click here</a>
+        @endif
+    </div>
 </x-app-layout>
