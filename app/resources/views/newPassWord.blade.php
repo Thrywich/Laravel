@@ -4,15 +4,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Nouveau mot de passe</title>
+        <title>New Password</title>
 
     </head>
 <body>
     <header>
-        <h1>Interface formulaire pour un nouveau formulaire</h1>
+        <h1>Add New Password</h1>
     </header>
     <main>
-        <form action="{{ route('form') }}" method="POST">
+        <form action={{ route('form') }} method="POST">
         @csrf
 
             <label for="url">URL : </label>
@@ -40,8 +40,8 @@
             
         </form>
     </main>
-    <footer>
-
+    <footer style="margin-top:50px;">
+        <a href="{{ route('dashboard') }}"><-- Retour</a>
     </footer>
 </body>
 </html>
