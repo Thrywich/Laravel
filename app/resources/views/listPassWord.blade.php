@@ -29,11 +29,10 @@
                         </table>
                     </li>
                 @endforeach
-            <a href="{{ route('dashboard') }}"><-- Retour</a>
             @else
                 <p>You have no password yet.</p>
-                <a href="{{ route('dashboard') }}"><-- Retour</a>
             @endif
+            <a href="{{ route('dashboard') }}"><-- Retour</a>
         </ul>
     </main>
     <footer>

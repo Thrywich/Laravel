@@ -28,6 +28,10 @@ Route::get('/addTeam', function () {
     return view('addTeam');
 })->name('addTeam');
 
+Route ::get('/addMembers', function () {
+    return view('addMembers');
+})->name('addMembers');
+
 
 Route::post('/form', [PostController::class, 'store'])->name('form');
 
@@ -35,11 +39,17 @@ Route::post('/update/{pwd}/{id}', [PostController::class, 'change'])->name('upda
 
 Route::post('/newTeam', [PostController::class, 'addTeam'])->name('newTeam');
 
+Route::post('/addUser', [PostController::class, 'foundUser'])->name('addUser');
 
 
-Route::get('/passwdList', [DataController::class, 'found'])->name('passwdList');
+
+Route::get('/passwdList', [DataController::class, 'foundPasswords'])->name('passwdList');
 
 Route::get('/updatePasswd/{id}', [DataController::class, 'updatePasswd'])->name('updatePasswd');
+
+Route::get('/teamList', [DataController::class, 'foundTeams'])->name('teamList');
+
+Route::get('/teamUsersList/{id}/{name}', [DataController::class, 'foundTeamUsers'])->name('teamUsersList');
 
 
 

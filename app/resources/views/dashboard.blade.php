@@ -29,4 +29,9 @@
             <a href="{{ route('addTeam') }}">Create a new team : click here</a>
         @endif
     </div>
+    <div>
+        @if (Route::has('teamList'))
+            <a href="{{ route('teamList') }}">See all my team : click here</a>
+        @endif
+    </div>
 </x-app-layout>

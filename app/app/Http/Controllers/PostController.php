@@ -1,5 +1,7 @@
 <?php
  
+// Controller qui ajoute ou supprime des données de la bdd
+
 namespace App\Http\Controllers;
  
 use App\Http\Controllers\Controller;
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Validator;
 class PostController extends Controller
 {
 
+    // Store a new password
     public function store(Request $request)
     {
         $validated = Validator::make($request->all(),[
@@ -31,6 +34,7 @@ class PostController extends Controller
             $passwd = $validated->validated()['mdp'];
         
             Password::create(['site' => $url, 'login' => $mail, 'password' => $passwd, 'user_id' => $id]);
+
             // Ajout data dans un fichier Json
             // $file = json_encode($validated->validated());
             // Storage::put(time().'.json', $file);
@@ -42,6 +46,7 @@ class PostController extends Controller
         return redirect(route('form'));
     }
 
+    // Change a password
     public function change(Request $request, $pwd, $id)
     {
         $validated = Validator::make($request->all(),[
@@ -65,6 +70,7 @@ class PostController extends Controller
         }
     }
 
+    // Create a new team
     public function addTeam(Request $request)
     {
         $validated = Validator::make($request->all(),[
@@ -85,5 +91,25 @@ class PostController extends Controller
 
         // The blog post is not valid...
         return redirect(route('newTeam'));
+    }
+
+    // Get all User with the name search
+    public function foundUser(Request $request)
+    { 
+        $validated = Validator::make($request->all(),[
+            'name' => 'required|string'
+        ]);
+
+        if ($validated) {
+
+            $name = $validated->validated()['name'];
+
+            $data = User::select(['name','email'])->where('name', $name)->get();
+
+            return view('searchUser', ['infoUser' => $data]);
+        }
+
+        // The blog post is not valid...
+        return redirect(route('teamUsersList'));
     }
 }
