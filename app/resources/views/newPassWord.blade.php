@@ -15,21 +15,21 @@
         <form action={{ route('form') }} method="POST">
         @csrf
 
-            <label for="url">URL : </label>
+            <label for="url">Website URL : </label>
             <input type="url" name="url" id="url"/>
             @error('url')
                 <p>{{$message}}</p>
             @enderror
 
 
-            <label for="email">Enter your email : </label>
+            <label for="email">Website identification : </label>
             <input type="email" name="email" id="email"/>
             @error('email')
                 <p>{{$message}}</p>
             @enderror
 
 
-            <label for="mdp">Enter your password : </label>
+            <label for="mdp">Website password : </label>
             <input type="password" name="mdp" id="mdp" minlength="8"/>
             @error('mdp')
                 <p>{{$message}}</p>

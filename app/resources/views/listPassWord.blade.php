@@ -15,15 +15,15 @@
                     <li style="margin: 0 0 20px 0; list-style: none;">
                         <table>
                             <tr style="border: 2px solid; border-radius: 3px; padding: 5px;">
-                                <td style="border: 2px solid; border-radius: 3px; padding: 5px;">Login</td>
-                                <td style="border: 2px solid; border-radius: 3px; padding: 5px;">{{$value->login}}</td>
-                            </tr>
-                            <tr style="border: 2px solid; border-radius: 3px; padding: 5px;">
-                                <td style="border: 2px solid; border-radius: 3px; padding: 5px;">Site</td>
+                                <td style="border: 2px solid; border-radius: 3px; padding: 5px;">Website</td>
                                 <td style="border: 2px solid; border-radius: 3px; padding: 5px; font-weight: bold;"><a href={{$value->site}} target="_blank">{{$value->site}}</a></td>
                             </tr>
                             <tr style="border: 2px solid; border-radius: 3px; padding: 5px;">
-                                <td style="border: 2px solid; border-radius: 3px; padding: 5px;">Password</td>
+                                <td style="border: 2px solid; border-radius: 3px; padding: 5px;">Website Login</td>
+                                <td style="border: 2px solid; border-radius: 3px; padding: 5px;">{{$value->login}}</td>
+                            </tr>
+                            <tr style="border: 2px solid; border-radius: 3px; padding: 5px;">
+                                <td style="border: 2px solid; border-radius: 3px; padding: 5px;">Website Password</td>
                                 <td style="border: 2px solid; border-radius: 3px; padding: 5px;">{{$value->password}} <a href={{route('updatePasswd', ['id' => $value->id])}} style="font-size: small; margin: 5px 0 0 0;">Update password</a></td>
                             </tr>
                         </table>
