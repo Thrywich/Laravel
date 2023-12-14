@@ -1,6 +1,6 @@
 <?php
  
-// Controller qui ajoute ou supprime des données de la bdd
+// Controller qui ajoute des données à la bdd
 
 namespace App\Http\Controllers;
  
@@ -12,11 +12,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
  
-class PostController extends Controller
+class CreateController extends Controller
 {
 
-    // Store a new password
-    public function store(Request $request)
+    // Create a new password
+    public function addPasswd(Request $request)
     {
         $validated = Validator::make($request->all(),[
             'url' => 'required|string|url',
@@ -35,7 +35,7 @@ class PostController extends Controller
         
             Password::create(['site' => $url, 'login' => $mail, 'password' => $passwd, 'user_id' => $id]);
 
-            // Ajout data dans un fichier Json
+            // Ajout data dans un fichier Json (garder pour exemple)
             // $file = json_encode($validated->validated());
             // Storage::put(time().'.json', $file);
         
@@ -43,31 +43,7 @@ class PostController extends Controller
           }
 
         // The blog post is not valid...
-        return redirect(route('form'));
-    }
-
-    // Change a password
-    public function change(Request $request, $pwd, $id)
-    {
-        $validated = Validator::make($request->all(),[
-            'actualmdp' => 'required|string',
-            'newmdp' => 'required|string'
-        ]);
-        
-
-        if ($validated) {
-            if ($pwd != $validated->validated()['actualmdp']) {
-                return redirect(route('updatePasswd', ['id' => $id]));
-            } else {
-            $passwd = $validated->validated()['newmdp'];
-            Password::where('id', $id)->first()->update(['password' => $passwd]);
-        
-            return redirect(route('dashboard'));
-          }
-
-            // The blog post is not valid...
-            return redirect(route('updatePasswd', ['id' => $id]));
-        }
+        return redirect(route('newPasswd'));
     }
 
     // Create a new team
@@ -86,30 +62,10 @@ class PostController extends Controller
             $user = User::find($id);
             $user->teams()->syncWithoutDetaching([$team->id]);
         
-            return redirect(route('dashboard'));
+            return redirect(route('teamList'));
         }
 
         // The blog post is not valid...
         return redirect(route('newTeam'));
-    }
-
-    // Get all User with the name search
-    public function foundUser(Request $request)
-    { 
-        $validated = Validator::make($request->all(),[
-            'name' => 'required|string'
-        ]);
-
-        if ($validated) {
-
-            $name = $validated->validated()['name'];
-
-            $data = User::select(['name','email'])->where('name', $name)->get();
-
-            return view('searchUser', ['infoUser' => $data]);
-        }
-
-        // The blog post is not valid...
-        return redirect(route('teamUsersList'));
     }
 }

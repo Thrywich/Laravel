@@ -12,7 +12,7 @@
         <h1>Add New Password</h1>
     </header>
     <main>
-        <form action={{ route('form') }} method="POST">
+        <form action={{ route('newPasswd') }} method="POST">
         @csrf
 
             <label for="url">Website URL : </label>
@@ -41,7 +41,9 @@
         </form>
     </main>
     <footer style="margin-top:50px;">
-        <a href="{{ route('dashboard') }}"><-- Retour</a>
+        @if (Route::has('dashboard'))
+            <a href="{{ route('dashboard') }}"><-- Dashboard</a>
+        @endif
     </footer>
 </body>
 </html>

@@ -12,10 +12,9 @@
         <h1>Update my password</h1>
     </header>
     <main>
-        @if ($currentPasswd->isNotEmpty())
-            @foreach ($currentPasswd as $value)
-
-                <form action={{ route('update', ['pwd' => $value->password, 'id' => $id]) }} method="POST">
+        @if ($data->isNotEmpty())
+            @foreach ($data as $value)
+                <form action={{ route('updatePasswd', ['id' => $value->id]) }} method="POST">
                 @csrf
 
                     <label for="mdp">Current Password : </label>
@@ -35,5 +34,10 @@
             @endforeach
         @endif
     </main>
+    <footer>
+        @if (Route::has('passwdList'))
+            <a href="{{ route('passwdList') }}"><-- Password list</a>
+        @endif
+    </footer>
 </body>
 </html>

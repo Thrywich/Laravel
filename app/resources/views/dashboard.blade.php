@@ -15,8 +15,8 @@
         </div>
     </div>
     <div>
-        @if (Route::has('newPassWord'))
-            <a href="{{ route('newPassWord') }}">Add new password : click here</a>
+        @if (Route::has('addPasswd'))
+            <a href="{{ route('addPasswd') }}">{{__("trad.trucmuche")}}Add new password : click here</a>
         @endif
     </div>
     <div>

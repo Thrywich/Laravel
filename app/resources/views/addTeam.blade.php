@@ -13,21 +13,22 @@
     </header>
     <main>
         <form action={{ route('newTeam') }} method="POST">
+        
         @csrf
-
             <label for="team">Name : </label>
             <input name="team" id="team" required/>
             @error('text')
-                <p>{{$message}}</p>
+                <p>{{ $message }}</p>
             @enderror
-
 
             <input type="submit" value="Create"/>
             
         </form>
     </main>
     <footer>
-
+        @if (Route::has('dashboard'))
+            <a href="{{ route('dashboard') }}"><-- Dashboard</a>
+        @endif
     </footer>
 </body>
 </html>
