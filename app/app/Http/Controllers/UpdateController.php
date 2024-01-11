@@ -32,8 +32,8 @@ class UpdateController extends Controller
             $passwd = $validated->validated()['newmdp'];
             Password::where('id', $id)->first()->update(['password' => $passwd]);
 
-            // Redirect on the dashboard
-            return redirect(route('dashboard'));
+            // Redirect on the password list of the user
+            return redirect(route('passwdList'));
           }
 
             // The blog post is not valid...

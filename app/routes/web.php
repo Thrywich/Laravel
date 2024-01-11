@@ -4,6 +4,7 @@ use App\Http\Controllers\CreateController;
 use App\Http\Controllers\ReadController;
 use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\ProfileController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,10 +39,10 @@ Route::get('/addTeam', function () {
 
 // ----- CREATE -----
 
-// Route 
+// Route d'appel de la classe d'ajout d'un mdp dans la bdd
 Route::post('/newPasswd', [CreateController::class, 'addPasswd'])->name('newPasswd');
 
-// Route 
+// Route d'appel de la classe d'ajout d'une équipe dans la bdd
 Route::post('/newTeam', [CreateController::class, 'addTeam'])->name('newTeam');
 
 
@@ -73,8 +74,11 @@ Route::post('/updatePasswd/{id}', [UpdateController::class, 'changePasswd'])->na
 // Route : le controlleur modifie la team en ajoutant un membre et redirige sur la liste des utilisateur présent dans la team
 Route::post('addUserToTeam/{idUser}/{idTeam}', [UpdateController::class, 'addUsertoTeam'])->name('addUserToTeam');
 
+// <---- END C.R.U.D ---->
 
 
+
+// Routes implantées par le framework
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

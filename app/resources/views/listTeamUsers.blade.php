@@ -4,52 +4,51 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>List team users</title>
+        <title>{{ __('trad.team.list_member') }}</title>
 
     </head>
 <body>
     <main>
         <h1>{{$name}}</h1>
         <div style="display: flex; justify-content: space-between; margin: 0 20vw 0 0;">
-            <ul>
+            <ul style="padding: 0 0 0 10px; list-style: none;">
                 @if ($infoUsers->isNotEmpty())
                     @foreach ($infoUsers as $value)
-                        <li style="margin: 0 0 10px 0; list-style: none;">
-                            <table>
-                                <tr style="border: 2px solid; border-radius: 3px; padding: 5px;">
-                                    <td style="border: 2px solid; border-radius: 3px; padding: 5px;">Member : {{$value->name}}</td>
-                                </tr>
-                            </table>
+                        <li style="margin: 0 0 10px 0;">
+                            {{$value->name}}
                         </li>
                     @endforeach
                 @endif
             </ul>
-            <ul>
-                        <li style="margin: 0 0 10px 0; list-style: none;">
-                            <table>
-                                <tr style="border: 2px solid; border-radius: 3px; padding: 5px;">
-                                    <td style="border: 2px solid; border-radius: 3px; padding: 5px;">Partager par : </td>
-                                    <td style="border: 2px solid; border-radius: 3px; padding: 5px;">Password : </td>
-                                </tr>
-                            </table>
-                        </li>
-            </ul>
+            <!-- <ul>
+                <li style="margin: 0 0 10px 0; list-style: none;">
+                    <table>
+                        <tr>
+                            <td style="border: 2px solid; border-radius: 3px; padding: 5px;">Partager par : </td>
+                            <td style="border: 2px solid; border-radius: 3px; padding: 5px;">Password : </td>
+                        </tr>
+                    </table>
+                </li>
+            </ul> -->
         </div>
         
-        <h2 style="margin: 40px 0 0 0">Add members</h2>
-        <form action={{ route('addUser', ['idTeam' => $id]) }} method="POST" style="margin: 20px 0 40px 0">
+        <h2 style="margin: 40px 0 20px 0">{{ __('trad.team.add_member') }}</h2>
+        <form action={{ route('addUser', ['idTeam' => $id]) }} method="POST">
         
         @csrf
-            <label for="name">Name : </label>
+            <label for="name" style="margin: 0 0 0 10px;">{{ __('trad.name') }} : </label>
             <input type="text" name="name" id="name" required/>
 
-            <input type="submit" value="Search"/>
+            <input type="submit" value={{ __('trad.submit') }} style="margin: 0 0 0 15px;"/>
             
         </form>
     </main>
-    <footer>
+    <footer style="display: flex; flex-direction: column; margin: 30px 0 0 0;">
         @if (Route::has('teamList'))
-            <a href={{ route('teamList') }}><-- List team</a>
+            <a href={{ route('teamList') }} style="margin: 0 0 10px 0;">&larr; {{ __('trad.team.my_team') }}</a>
+        @endif
+        @if (Route::has('dashboard'))
+            <a href="{{ route('dashboard') }}">&larr; {{ __('trad.dashboard') }}</a>
         @endif
     </footer>
 </body>

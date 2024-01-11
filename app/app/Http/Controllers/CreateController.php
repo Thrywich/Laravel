@@ -5,10 +5,13 @@
 namespace App\Http\Controllers;
  
 use App\Http\Controllers\Controller;
+
 use App\Models\Password;
 use App\Models\Team;
 use App\Models\User;
+
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
  
@@ -39,11 +42,11 @@ class CreateController extends Controller
             // $file = json_encode($validated->validated());
             // Storage::put(time().'.json', $file);
         
-            return redirect(route('dashboard'));
+            return redirect(route('passwdList'));
           }
 
         // The blog post is not valid...
-        return redirect(route('newPasswd'));
+        return redirect(route('addPasswd'));
     }
 
     // Create a new team
