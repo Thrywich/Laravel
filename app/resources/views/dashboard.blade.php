@@ -1,32 +1,30 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('trad.dashboard') }}
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
+    <div class="mt-4 ml-4">
+        <div class="flex">
+            @if (Route::has('addPasswd'))
+                <p>{{ __('trad.password.add_passwd') }} :&nbsp;</p><a href={{ route('addPasswd') }}>{{ __('trad.click_here') }}</a>
+            @endif
         </div>
-    </div>
-    <div>
-        @if (Route::has('newPassWord'))
-            <a href="{{ route('newPassWord') }}">Add new password : click here</a>
-        @endif
-    </div>
-    <div>
-        @if (Route::has('passwdList'))
-            <a href="{{ route('passwdList') }}">See all my password : click here</a>
-        @endif
-    </div>
-    <div style="margin-top:50px;">
-        @if (Route::has('addTeam'))
-            <a href="{{ route('addTeam') }}">Create a new team : click here</a>
-        @endif
+        <div class="flex">
+            @if (Route::has('passwdList'))
+                <p>{{ __('trad.password.see_passwd') }} :&nbsp;</p><a href={{ route('passwdList') }}>{{ __('trad.click_here') }}</a>
+            @endif
+        </div>
+        <div class="flex mt-4">
+            @if (Route::has('addTeam'))
+                <p>{{ __('trad.team.create_team') }} :&nbsp;</p><a href={{ route('addTeam') }}>{{ __('trad.click_here') }}</a>
+            @endif
+        </div>
+        <div class="flex">
+            @if (Route::has('teamList'))
+                <p>{{ __('trad.team.see_teams') }} :&nbsp;</p><a href={{ route('teamList') }}>{{ __('trad.click_here') }}</a>
+            @endif
+        </div>
     </div>
 </x-app-layout>

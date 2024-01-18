@@ -4,30 +4,31 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Create New Team</title>
+        <title>{{ __('trad.team.create_team') }}</title>
 
     </head>
 <body>
     <header>
-        <h1>Create New Team</h1>
+        <h1>{{ __('trad.team.create_team') }}</h1>
     </header>
     <main>
         <form action={{ route('newTeam') }} method="POST">
+        
         @csrf
-
-            <label for="team">Name : </label>
+            <label for="team" style="margin: 0 0 0 10px;">{{ __('trad.name') }} : </label>
             <input name="team" id="team" required/>
             @error('text')
-                <p>{{$message}}</p>
+                <p>{{ $message }}</p>
             @enderror
 
-
-            <input type="submit" value="Create"/>
+            <input type="submit" value={{ __('trad.submit') }} style="margin: 0 0 0 15px;"/>
             
         </form>
     </main>
-    <footer>
-
+    <footer style="margin: 30px 0 0 0;">
+        @if (Route::has('dashboard'))
+            <a href="{{ route('dashboard') }}">&larr; {{ __('trad.dashboard') }}</a>
+        @endif
     </footer>
 </body>
 </html>
