@@ -42,9 +42,9 @@ class addMember extends Notification
     {
         return (new MailMessage)
                     ->from($this->host->email, $this->host->name)
-                    ->subject('New member')
-                    ->line('Welcome to '.$this->guestName.' who joins the team : '.$this->teamName.' !!!')
-                    ->line('Invited by '.$this->host->name.' at '.date('l jS \of F Y h:i:s A'));
+                    ->subject( __('notification.add_member') )
+                    ->line( __('notification.welcome') .$this->guestName. __('notification.join') .$this->teamName.' !!!')
+                    ->line( __('notification.invited') .$this->host->name. __('notification.date') );
     }
 
     /**

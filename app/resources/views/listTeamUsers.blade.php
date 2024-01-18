@@ -20,19 +20,9 @@
                     @endforeach
                 @endif
             </ul>
-            <!-- <ul>
-                <li style="margin: 0 0 10px 0; list-style: none;">
-                    <table>
-                        <tr>
-                            <td style="border: 2px solid; border-radius: 3px; padding: 5px;">Partager par : </td>
-                            <td style="border: 2px solid; border-radius: 3px; padding: 5px;">Password : </td>
-                        </tr>
-                    </table>
-                </li>
-            </ul> -->
         </div>
         
-        <h2 style="margin: 40px 0 20px 0">{{ __('trad.team.add_member') }}</h2>
+        <h2 style="margin: 40px 0 20px 0">{{ __('trad.team.find_member') }}</h2>
         <form action={{ route('addUser', ['idTeam' => $id]) }} method="POST">
         
         @csrf
