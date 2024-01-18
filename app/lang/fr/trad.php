@@ -45,6 +45,6 @@ return [
         'add' => 'Ajouter',
         'find_member' => 'Trouver un membre',
         'no_user' => 'Il n\'existe pas d\'utilisateur avec ce nom.',
-    ],
+    ]
 
 ];
