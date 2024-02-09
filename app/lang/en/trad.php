@@ -24,7 +24,7 @@ return [
     'email' => 'E-mail',
 
     'password' => [
-        'add_passwd' => 'Add a new passwordddddddddd',
+        'add_passwd' => 'Add a new password',
         'see_passwd' => 'See all my passwords',
         'my_passwd' => 'My Passwords',
         'no_passwd' => 'You have no password yet.',
